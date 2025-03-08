@@ -96,7 +96,7 @@ def ask_continue(text):
 def show_help():
     print("""
 使い方
-＄ ec [options] [profile name]
+$ ec [options] [profile name]
 
 [options]
 - new   指定されたプロファイルを作成します
