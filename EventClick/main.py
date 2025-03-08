@@ -2,8 +2,6 @@ import json
 import glob
 import os
 import sys
-from threading import Thread
-from multiprocessing import Process
 
 import pyautogui
 from pynput import keyboard, mouse
@@ -66,7 +64,7 @@ class Profile:
         self.root = "profiles"
         if not os.path.isdir(self.root):
             os.mkdir(self.root)
-        self.profiles = sorted(os.listdir(self.root))
+        self.profiles = sorted(glob.glob(f"{self.root}{os.sep}**{os.sep}"))
 
     def new(self, name):
         path = self.join(name)
