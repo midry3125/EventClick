@@ -143,7 +143,7 @@ def main():
             if setting.target in bindings:
                 if not ask_continue(f"{setting.target}は既に割り当てられています\n上書きしますか？"):
                     return
-            print("\n左クリックする位置を \"右クリック\" してください(Enterキーで設定完了)")
+            print("\n2. 左クリックする位置を \"右クリック\" してください(Enterキーで設定完了)")
             sys.stdout.write("> ")
             with mouse.Listener(on_click=setting.pos_on_click) as mlistener:
                 with keyboard.Listener(on_press=setting.fin_click_on_press, suppress=True) as klistener:
