@@ -155,7 +155,7 @@ def main():
             binding = Binding(bindings)
             print("バインド中...(Enterキーで終了)")
             with mouse.Listener(on_click=binding.on_click) as mlistener:
-                with keyboard.Listener(on_press=binding.on_press, on_release=binding.on_release, suppress=True) as klistener:
+                with keyboard.Listener(on_press=binding.on_press, on_release=binding.on_release) as klistener:
                     klistener.join()
         else:
             show_help()
