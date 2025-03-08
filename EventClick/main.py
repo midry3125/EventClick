@@ -6,6 +6,8 @@ import sys
 import pyautogui
 from pynput import keyboard, mouse
 
+pyautogui.FAILSAFE = False
+
 class Setting:
     def __init__(self):
         self.target = ""
@@ -61,10 +63,10 @@ class Binding:
 
 class Profile:
     def __init__(self):
-        self.root = "profiles"
+        self.root = os.path.join(os.environ.get("ProgramData", "/opt"), "EventClick", "profiles")
         if not os.path.isdir(self.root):
-            os.mkdir(self.root)
-        self.profiles = sorted(glob.glob(f"{self.root}{os.sep}**{os.sep}"))
+            os.makedirs(self.root)
+        self.profiles = sorted([os.path.basename(os.path.dirname(p)) for p in glob.glob(f"{self.root}{os.sep}**{os.sep}")])
 
     def new(self, name):
         path = self.join(name)
